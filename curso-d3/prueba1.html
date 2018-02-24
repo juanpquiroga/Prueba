@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3</title>
+    <script src="js/d3.js" charset="utf-8"></script>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>This is a paragraph</p>
+    <ul id="items">
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+        <li class="item">This is a item</li>
+    </ul>
+    <script>
+        d3.select('h1').text('Selected')
+            .style('color','red');
+        d3.selectAll('.item:nth-child(3n+2)')
+            .append('div').text('Item modificado')
+            .style('color','green')
+            .style('font-weight','bold');
+        d3.select("#items")
+            .insert('li',':nth-child(3n)')
+            .classed('item',true)
+            .text('Another item');
+        d3.select(".item:nth-child(4n)").remove();
+        d3.select("h1").attr('class','heading');
+    </script>
+</body>
+</html>
